@@ -5,25 +5,24 @@ import { View, Text, Image } from 'react-native';
 import styles from './styles';
 import AppButton from '../../components/AppButton'
 
-const Home = () => {
+export default function Home ({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar style='light' backgroundColor='#303030' />
             <Image
                 style={styles.imageStyle} 
-                source={require('../../../assets/bg_logo.png')} />
+                source={require('../../../assets/bg_logo.png')}
+            />
             <View style={styles.buttonView}>
                 <AppButton 
                     text='Criar Torneio'
-                    onPress={()=>''}
+                    onPress={() => navigation.navigate('CriarTorneio')}
                 />
                 <AppButton 
                     text='Lista de Torneios'
-                    onPress={()=>''}
+                    onPress={() => navigation.navigate('ListarTorneios')}
                 />
             </View>
         </View>
     )
 }
-
-export default Home;

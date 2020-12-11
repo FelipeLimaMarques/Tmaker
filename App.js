@@ -1,13 +1,27 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-
 // Screens
 import Home from './src/screens/Home';
+import CriarTorneio from './src/screens/CriarTorneio';
+import ListarTorneios from './src/screens/ListarTorneios'
+
+function HeaderViews (props) {
+  return (
+    <View style={styles.headerWrapper} >
+      <Image 
+        style={styles.headerLogo}
+        source={require('./assets/header_logo.png')}
+      />
+      <Text style={styles.headerTitle}>{props.title}</Text>
+    </View>
+    
+  )
+}
 
 export default function App() {
   return (
@@ -20,26 +34,25 @@ export default function App() {
               shadowOpacity: 0,
               elevation: 0,
             },
-            headerTintColor: '#FFC629',
-            headerTitleStyle: {
-              fontSize: 34,
-              marginTop: 20,
-              position: 'absolute',
-              marginLeft: -34,
-            },
-            headerLeft: () => (
-              <Image 
-                style={styles.headerLogo}
-                source={require('./assets/header_logo.png')}
-              />
-            ),
+            headerLeft: null,
         }}
       >
         <Stack.Screen name="Home"
           component={Home}
           options={{
-            title: 'Tournament Maker',
-
+            headerTitle: props => <HeaderViews title={'Tournament Maker'} />
+          }}
+        />
+        <Stack.Screen name="CriarTorneio"
+          component={CriarTorneio}
+          options={{
+            headerTitle: props => <HeaderViews title={'Criar Torneio'} />
+          }}
+        />
+        <Stack.Screen name="ListarTorneios"
+          component={ListarTorneios}
+          options={{
+            headerTitle: props => <HeaderViews title={'Lista de Torneios'} />
           }}
         />
       </Stack.Navigator>
@@ -57,9 +70,19 @@ const styles = StyleSheet.create({
   headerLogo: {
     width: 76,
     height: 40,
-    marginBottom: 20,
-    marginLeft: 140,
-    marginTop: 40,
+    alignSelf: 'center',
 
-  }
+  },
+  headerTitle: {
+    fontSize: 34,
+    marginTop: 20,
+    alignSelf: 'center',
+    color: '#FFC629',
+  },
+  headerWrapper: {
+    backgroundColor: '#303030',
+    height: 73,
+    marginTop: 70,
+    justifyContent: 'space-around',
+  },
 });
