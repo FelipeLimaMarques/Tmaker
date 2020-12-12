@@ -37,7 +37,7 @@ export default function CriarTorneio({ navigation }) {
     const [victory, setVictory] = useState({ victoryOption: 'best3' });
     // const onSubmit = tournament => storeData(tournament);
     // const onSubmit = tournament => console.log(getData());
-    // const onSubmit = tournament => console.log(tournament);
+    const onSubmit = tournament => console.log(tournament);
 
     return (
         <View style={styles.container}>
@@ -183,8 +183,8 @@ export default function CriarTorneio({ navigation }) {
                 <View style={styles.buttonWrapper}>
                     <FormButton
                         text="Criar"
-                        // onPress={handleSubmit(onSubmit)}
-                        onPress={() => navigation.goBack()}
+                        onPress={handleSubmit(onSubmit)}
+                        // onPress={() => navigation.goBack()}
                     />
                 </View>
             </View>
