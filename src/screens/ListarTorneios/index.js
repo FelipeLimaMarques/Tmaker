@@ -12,7 +12,6 @@ export default function ListarTorneios ({ navigation }) {
                 style={styles.imageStyle} 
                 source={require('../../../assets/bg_logo.png')}
             />
-            
         </View>
     )
 }
