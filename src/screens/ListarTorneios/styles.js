@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { color } from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
     container: {
@@ -19,6 +20,23 @@ const styles = StyleSheet.create({
         marginTop: 95,
         position: 'absolute'
 
+    },
+    scrollView: {
+        backgroundColor: 'transparent',
+        width: '100%',
+        marginTop: 200
+      },
+      scrollViewItems: {
+        alignItems: 'center'
+      },
+    cardView: {
+      backgroundColor: '#FFF',
+      width: '100%',
+      marginTop: 200,
+      alignItems: 'center'
+    },
+    cardText: {
+        color: '#FFC629'
     }
 });
 
