@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
       width: 320,
       height: 50,
       borderRadius: 10,
+      marginTop: 10,
       flexDirection: 'row',
       alignItems: 'center'
     },
@@ -72,7 +73,16 @@ const styles = StyleSheet.create({
     cardBodyText: {
         color: '#FFC629',
         fontSize: 12,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 4
+    },
+    cardLine:{
+      height: 0,
+      marginTop: 10,
+      borderBottomWidth: 1,
+      borderColor:'#FFC629',
+      width: 320,
+      backgroundColor: '#FFC629'
     }
 });
 
