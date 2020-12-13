@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, TextInput, Image, Text, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
@@ -11,21 +11,58 @@ import styles from './styles';
 
 import FormButton from '../../components/FormButton'
 
-const storeData = async (value) => {
+const STORAGE_KEY = '@save_tournament'
+
+const saveData = async (tournament) => {
     try {
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem('@storage_Key', jsonValue);
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tournament))
+        alert('Data successfully saved')
     } catch (e) {
-      // saving error
+        alert('Failed to save the data to the storage')
     }
 }
 
-const getData = async () => {
+const readData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem('@storage_Key')
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch(e) {
-      // error reading value
+        const tournamentData = await AsyncStorage.getItem(STORAGE_KEY).then( item => {
+            const data = JSON.parse(item);
+            return data;
+        })
+
+        if (tournamentData !== null) {
+            console.log(tournamentData);
+            // setState(tournamentData);
+        }
+        
+    } catch (e) {
+        alert('Failed to fetch the data from storage')
+    }
+}
+
+const saveNew = async (tournament) => {
+    try {
+        const existingTournaments = await AsyncStorage.getItem(STORAGE_KEY);
+
+        const newTournament = JSON.parse(existingTournaments);
+        console.log(newTournament);
+        if( !newTournament ){
+            newTournament = [];
+        }
+
+        newTournament.push( tournament );
+
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newTournament))
+    } catch (e) {
+        alert('Failed to save the data to the storage')
+    }
+}
+
+const clearStorage = async () => {
+    try {
+        await AsyncStorage.clear()
+        alert('Storage successfully cleared!')
+    } catch (e) {
+        alert('Failed to clear the async storage.')
     }
 }
 
@@ -35,9 +72,12 @@ export default function CriarTorneio({ navigation }) {
     const [game, setGame] = useState({ gameOption: 'sfv' });
     const [bracket, setBracket] = useState({ bracketOption: 'single8' });
     const [victory, setVictory] = useState({ victoryOption: 'best3' });
-    // const onSubmit = tournament => storeData(tournament);
-    // const onSubmit = tournament => console.log(getData());
-    // const onSubmit = tournament => console.log(tournament);
+    const [tournament, setTournament] = useState([]);
+    
+    const onSubmit = data => {
+        setTournament(data);
+        saveNew(tournament);
+    }
 
     return (
         <View style={styles.container}>
@@ -183,8 +223,8 @@ export default function CriarTorneio({ navigation }) {
                 <View style={styles.buttonWrapper}>
                     <FormButton
                         text="Criar"
-                        // onPress={handleSubmit(onSubmit)}
-                        onPress={() => navigation.goBack()}
+                        onPress={handleSubmit(onSubmit)}
+                    // onPress={() => navigation.goBack()}
                     />
                 </View>
             </View>
