@@ -73,6 +73,14 @@ const styles = StyleSheet.create({
         color: '#FFC629',
         fontSize: 12,
         fontWeight: 'bold'
+    },
+    cardLine:{
+      height: 0,
+      top:24,
+      borderBottomWidth: 1,
+      borderColor:'#FFC629',
+      width: 100,
+      backgroundColor: '#FFC629'
     }
 });
 

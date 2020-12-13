@@ -19,6 +19,7 @@ function ListComponent (props) {
                                     <Text style={styles.cardBodyText}>20/10/2020</Text>
                                 </View>
                             </View>
+                            <View style={styles.cardLine}></View>
                         </View>
                     </TouchableHighlight>
             )
