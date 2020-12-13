@@ -52,7 +52,7 @@ export default function App() {
         <Stack.Screen name="ListarTorneios"
           component={ListarTorneios}
           options={{
-            headerTitle: props => <HeaderViews title={'Lista de Torneios'} />
+            headerTitle: props => <HeaderViews title={'Torneios'} />
           }}
         />
       </Stack.Navigator>
