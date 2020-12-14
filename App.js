@@ -2,39 +2,38 @@ import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
-
-// Screens
 import Home from './src/screens/Home';
 import CriarTorneio from './src/screens/CriarTorneio';
-import ListarTorneios from './src/screens/ListarTorneios'
+import ListarTorneios from './src/screens/ListarTorneios';
+import TelaTorneio from './src/screens/TelaTorneio';
 
-function HeaderViews (props) {
+function HeaderViews(props) {
   return (
     <View style={styles.headerWrapper} >
-      <Image 
+      <Image
         style={styles.headerLogo}
         source={require('./assets/header_logo.png')}
       />
       <Text style={styles.headerTitle}>{props.title}</Text>
     </View>
-    
+
   )
 }
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-            headerStyle: {
-              height: 73,
-              backgroundColor: '#303030',
-              shadowOpacity: 0,
-              elevation: 0,
-            },
-            headerLeft: null,
+          headerStyle: {
+            height: 73,
+            backgroundColor: '#303030',
+            shadowOpacity: 0,
+            elevation: 0,
+          },
+          headerLeft: null,
         }}
       >
         <Stack.Screen name="Home"
@@ -53,6 +52,12 @@ export default function App() {
           component={ListarTorneios}
           options={{
             headerTitle: props => <HeaderViews title={'Torneios'} />
+          }}
+        />
+        <Stack.Screen name="TelaTorneio"
+          component={TelaTorneio}
+          options={{
+            headerTitle: props => <HeaderViews title={'Torneio'} />
           }}
         />
       </Stack.Navigator>

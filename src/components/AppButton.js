@@ -1,8 +1,12 @@
 import React from 'react'
-import { Text, StyleSheet, TouchableHighlight} from 'react-native'
+import {
+    Text,
+    StyleSheet,
+    TouchableHighlight
+} from 'react-native'
 
 const Button = (props) => {
-    return(
+    return (
         <TouchableHighlight style={styles.buttonBox} onPress={props.onPress}>
             <Text style={styles.buttonText}>{props.text}</Text>
         </TouchableHighlight>
@@ -12,7 +16,7 @@ const Button = (props) => {
 export default Button;
 
 const styles = StyleSheet.create({
-    buttonBox:{
+    buttonBox: {
         width: 286,
         height: 46,
         borderWidth: 2,
@@ -22,7 +26,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginVertical: 15
     },
-    buttonText:{
+    buttonText: {
         color: '#FFC629',
         fontSize: 33,
     }
