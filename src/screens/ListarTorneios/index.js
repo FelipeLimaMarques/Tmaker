@@ -12,6 +12,44 @@ import styles from './styles';
 import FormButton from '../../components/FormButton'
 
 const STORAGE_KEY = '@save_tournament';
+const logoSfv = '../../../assets/sfv_logo.png';
+const logoCsgo = '../../../assets/csgo.jpg';
+const logoRb6 = '../../../assets/rb6.jpg';
+const logoSkg = '../../../assets/skg.png';
+const logoTk7 = '../../../assets/tekken7.png';
+const logoDota2 = '../../../assets/dota2.jpg';
+const logoMk11 = '../../../assets/mk11.jpg';
+const logoLol = '../../../assets/lol.jpg';
+const logoVal = '../../../assets/val.jpg';
+
+const GetLogo = (tGame) => {
+    if (tGame == 'sfv') return <Image style={styles.imageCardStyle}
+        source={require(logoSfv)} />
+    else
+    if (tGame == 'mk11') return <Image style={styles.imageCardStyle}
+        source={require(logoMk11)} />
+    else
+    if (tGame == 'tk7') return <Image style={styles.imageCardStyle}
+        source={require(logoTk7)} />
+    else
+    if (tGame == 'skg') return <Image style={styles.imageCardStyle}
+        source={require(logoSkg)} />
+    else
+    if (tGame == 'csgo') return <Image style={styles.imageCardStyle}
+        source={require(logoCsgo)} />
+    else
+    if (tGame == 'val') return <Image style={styles.imageCardStyle}
+        source={require(logoVal)} />
+    else
+    if (tGame == 'rb6') return <Image style={styles.imageCardStyle}
+        source={require(logoRb6)} />
+    else
+    if (tGame == 'lol') return <Image style={styles.imageCardStyle}
+        source={require(logoLol)} />
+    else
+    if (tGame == 'dota') return <Image style={styles.imageCardStyle}
+        source={require(logoDota2)} />
+}
 
 const clearStorage = async () => {
     try {
@@ -64,7 +102,9 @@ export default function ListarTorneios({ navigation }) {
                                     key={index}>
                                     <View>
                                         <View style={styles.cardView}>
-                                            <Image style={styles.imageCardStyle} source={require('../../../assets/bg_logo.png')} />
+                                            {
+                                                GetLogo(item.tGame)
+                                            }
                                             <View>
                                                 <View style={styles.cardHeader}>
                                                     <Text style={styles.cardHeaderText}>{item.tName}</Text>

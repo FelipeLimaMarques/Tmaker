@@ -39,7 +39,7 @@ export default function CriarTorneio({ navigation }) {
     const [victory, setVictory] = useState({ victoryOption: 'best3' });
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
     today = dd + '/' + mm + '/' + yyyy;
 
@@ -66,15 +66,7 @@ export default function CriarTorneio({ navigation }) {
                     },
                 }}
                 onSubmit={values => {
-                    console.log(
-                        `Submitting:
-                        Name: ${values.tArray.tName}
-                        Mode: ${values.tArray.tMode}
-                        Game: ${values.tArray.tGame}
-                        Victory: ${values.tArray.tVictory}`
-                    )
                     values.tArray.tDate = today;
-                    console.log(values.tArray);
                     saveNew(values.tArray);
                     navigation.goBack();
                 }}
@@ -128,6 +120,7 @@ export default function CriarTorneio({ navigation }) {
                                         <Picker.Item label='Street Fighter V' value='sfv' />
                                         <Picker.Item label='Mortal Kombat 11' value='mk11' />
                                         <Picker.Item label='Tekken 7' value='tk7' />
+                                        <Picker.Item label='SkullGirls' value='skg' />
                                         <Picker.Item label='Counter Strike: Global Offensive' value='csgo' />
                                         <Picker.Item label='Valorant' value='val' />
                                         <Picker.Item label='Rainbow Six: Siege' value='rb6' />

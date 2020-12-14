@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     height: 50,
     resizeMode: 'contain',
     backgroundColor: 'black',
+    borderRadius: 10,
+    
   },
   cardHeader: {
     width: 270,
@@ -62,7 +64,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    overflow: 'hidden'
   },
   cardHeaderText: {
     alignSelf: 'center',
