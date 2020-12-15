@@ -1,87 +1,101 @@
 import React, { useState } from 'react'
 import {
-    TextInput,
+    Text,
     StyleSheet
 } from 'react-native'
 
-const BracketInput = (props) => {
+const BracketText = (props) => {
     const [value, onChangeText] = useState('');
 
     if (props.pos == 1) {
         return (
-            <TextInput
+            <Text
                 style={[styles.bracketInput, styles.pos1]}
                 onChangeText={text => onChangeText(text)}
                 maxLength={4}
                 defaultValue=""
-            />
+            >
+                {props.text}
+            </Text>
         )
     } else
         if (props.pos == 2) {
             return (
-                <TextInput
+                <Text
                     style={[styles.bracketInput, styles.pos2]}
                     onChangeText={text => onChangeText(text)}
                     maxLength={4}
                     defaultValue=""
-                />
+                >
+                    {props.text}
+                </Text>
             )
         } else
             if (props.pos == 3) {
                 return (
-                    <TextInput
+                    <Text
                         style={[styles.bracketInput, styles.pos3]}
                         onChangeText={text => onChangeText(text)}
                         maxLength={4}
                         defaultValue=""
-                    />
+                    >
+                    {props.text}
+                    </Text>
                 )
             } else
                 if (props.pos == 4) {
                     return (
-                        <TextInput
+                        <Text
                             style={[styles.bracketInput, styles.pos4]}
                             onChangeText={text => onChangeText(text)}
                             maxLength={4}
                             defaultValue=""
-                        />
+                        >
+                            {props.text}
+                        </Text>
                     )
                 } else
                     if (props.pos == 5) {
                         return (
-                            <TextInput
+                            <Text
                                 style={[styles.bracketInput, styles.pos5]}
                                 onChangeText={text => onChangeText(text)}
                                 maxLength={4}
                                 defaultValue=""
-                            />
+                            >
+                                {props.text}
+                            </Text>
                         )
                     } else
                         if (props.pos == 6) {
                             return (
-                                <TextInput
+                                <Text
                                     style={[styles.bracketInput, styles.pos6]}
                                     onChangeText={text => onChangeText(text)}
                                     maxLength={4}
                                     defaultValue=""
-                                />
+                                >
+                                    {props.text}
+                                </Text>
                             )
                         } else
                             if (props.pos == 7) {
                                 return (
-                                    <TextInput
+                                    <Text
                                         style={[styles.bracketInput, styles.pos7]}
                                         onChangeText={text => onChangeText(text)}
                                         maxLength={4}
                                         defaultValue=""
-                                    />
+                                    >
+                                        {props.text}
+                                    </Text>
                                 )
                             }
 
 
 }
 
-export default BracketInput;
+export default BracketText;
 
 const styles = StyleSheet.create({
     bracketInput: {
@@ -109,11 +123,11 @@ const styles = StyleSheet.create({
         left: 18,
     },
     pos5: {
-        marginTop: 173,
+        marginTop: 71,
         left: 138,
     },
     pos6: {
-        marginTop: 71,
+        marginTop: 173,
         left: 138,
     },
     pos7: {

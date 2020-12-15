@@ -5,14 +5,40 @@ import {
     Image,
     ScrollView,
     Text,
+    TextInput,
     KeyboardAvoidingView,
+    TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
-import BracketInput from '../../components/BracketInput'
+import BracketText from '../../components/BracketText'
 import TeamInput from '../../components/TeamInput'
+import FormButton from '../../components/FormButton'
+
+const FormBracket = () => {
+    return <View style={{ width: 200, height: 200, backgroundColor: 'white'}}>
+        <TextInput
+            style={styles.inputBox}
+            onChangeText={ value => setBText1(value)}
+            defaultValue=""
+        />
+    </View>
+}
 
 export default function TelaTorneio({ navigation, route }) {
+    const [formVisibility1, setFormVisibility1] = useState(false);
+    const [formVisibility2, setFormVisibility2] = useState(false);
+    const [formVisibility3, setFormVisibility3] = useState(false);
+    const [formVisibility4, setFormVisibility4] = useState(false);
+    const [editVisibility, setEditVisibility] = useState(false);
+    const [teamsVisibility, setTeamsVisibility] = useState(false);
     const [tData, setTData] = useState([]);
+    const [bText1, setBText1] = useState('')
+    const [bText2, setBText2] = useState('')
+    const [bText3, setBText3] = useState('')
+    const [bText4, setBText4] = useState('')
+    const [bText5, setBText5] = useState('')
+    const [bText6, setBText6] = useState('')
+    const [bText7, setBText7] = useState('')
 
     useEffect(() => {
         let mounted = true;
@@ -37,36 +63,197 @@ export default function TelaTorneio({ navigation, route }) {
                         style={styles.imageStyleBracket}
                         source={require('../../../assets/Bracket.png')}
                     />
+                    {
+                        // Partida 1
+                        formVisibility1
+                            ? <View style={styles.formStyle}>
+                            <Text style={styles.labelText}>Time 1:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText1(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <Text style={styles.labelText}>Time 2:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText2(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <FormButton
+                                text='Salvar'
+                                fontSize={24}
+                                width='normal'
+                                onPress={ () => {setFormVisibility1(!formVisibility1)}}
+                            />
+                        </View>
+                            : null
+                    }
+                    {
+                        // Partida 2
+                        formVisibility2
+                            ? <View style={styles.formStyle}>
+                            <Text style={styles.labelText}>Time 3:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText3(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <Text style={styles.labelText}>Time 4:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText4(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <FormButton
+                                text='Salvar'
+                                fontSize={24}
+                                width='normal'
+                                onPress={ () => {setFormVisibility2(!formVisibility2)}}
+                            />
+                        </View>
+                            : null
+                    }
+                    {
+                        // Partida 3
+                        formVisibility3
+                            ? <View style={styles.formStyle}>
+                            <Text style={styles.labelText}>Time 5:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText5(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <Text style={styles.labelText}>Time 6:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText6(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <FormButton
+                                text='Salvar'
+                                fontSize={24}
+                                width='normal'
+                                onPress={ () => {setFormVisibility3(!formVisibility3)}}
+                            />
+                        </View>
+                            : null
+                    }
+                    {
+                        // Vencedor
+                        formVisibility4
+                            ? <View style={styles.formStyle}>
+                            <Text style={styles.labelText}>Vencedor:</Text>
+                            <TextInput
+                                style={styles.inputBox}
+                                onChangeText={ value => setBText7(value)}
+                                maxLength={4}
+                                defaultValue=""
+                            />
+                            <FormButton
+                                text='Salvar'
+                                fontSize={24}
+                                width='normal'
+                                onPress={ () => {setFormVisibility4(!formVisibility4)}}
+                            />
+                        </View>
+                            : null
+                    }
+                    {
+                        // Botão Editar
+                        editVisibility
+                            ? <View style={{ position: 'absolute', left: 0}}>
+                                <TouchableHighlight
+                                    style={styles.partida1}
+                                    onPress={ () => {
+                                        setFormVisibility1(!formVisibility1)
+                                    }}
+                                >
+                                    <Text />
+                                </TouchableHighlight>
+                                <TouchableHighlight
+                                    style={styles.partida2}
+                                    onPress={ () => {
+                                        setFormVisibility2(!formVisibility2)
+                                    }}
+                                >
+                                    <Text />
+                                </TouchableHighlight>
+                                <TouchableHighlight
+                                    style={styles.partida3}
+                                    onPress={ () => {
+                                        setFormVisibility3(!formVisibility3)
+                                    }}
+                                >
+                                    <Text />
+                                </TouchableHighlight>
+                                <TouchableHighlight
+                                    style={styles.vencedor}
+                                    onPress={ () => {
+                                        setFormVisibility4(!formVisibility4)
+                                    }}
+                                >
+                                    <Text />
+                                </TouchableHighlight>
+                            </View>
+                            : null
+                    }
 
-                    <BracketInput
+                    <BracketText
                         pos={1}
+                        text={bText1}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={2}
+                        text={bText2}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={3}
+                        text={bText3}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={4}
+                        text={bText4}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={5}
+                        text={bText5}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={6}
+                        text={bText6}
                     />
-                    <BracketInput
+                    <BracketText
                         pos={7}
+                        text={bText7}
                     />
 
                     <View style={styles.cardLine} />
                     <Text style={styles.headerText}>Equipes</Text>
                     <ScrollView styles={styles.scrollView}>
                         {
-                            <TeamInput />
+                            teamsVisibility
+                                ? <TeamInput />
+                                : null
                         }
+                        
                     </ScrollView>
+                    <View style={styles.buttonView}>
+                        <FormButton
+                            text='Editar'
+                            fontSize={24}
+                            width='normal'
+                            onPress={ () => {
+                                setEditVisibility(!editVisibility)
+                                setTeamsVisibility(!teamsVisibility)
+                            }}
+                        />
+                    </View>
                 </View>
             </KeyboardAvoidingView>
         </View>

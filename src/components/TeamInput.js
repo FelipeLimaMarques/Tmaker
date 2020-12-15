@@ -10,7 +10,7 @@ import FormButton from './FormButton';
 const TeamInput = (props) => {
     const [teams, setTeams] = useState([{ name: '' }]);
 
-    return <View>
+    return <View style={styles.teamsWrapper}>
         {
             teams.map((team, index) =>
                 <View key={index} style={{ width: '100%' }}>
@@ -59,8 +59,12 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     buttonView: {
-        height: 200,
+        height: 100,
         flexDirection: 'row',
         alignItems: 'center',
+    },
+    teamsWrapper: {
+        height: 220,
+        justifyContent: 'flex-start',
     },
 })
