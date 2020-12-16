@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import { color } from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
     container: {
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
       color: '#FFC629',
     },
     formStyle: {
-      width: 200,
+      width: 250,
       padding: 10,
       height: 230,
       backgroundColor: '#303030',
@@ -36,8 +35,11 @@ const styles = StyleSheet.create({
       zIndex: 1,
       
     },
+    inputHorizontal: {
+      flexDirection: 'row',
+    },
     inputBox: {
-      width: '100%',
+      width: '50%',
       height: 46,
       color: '#FFC629',
       fontSize: 16,
@@ -84,15 +86,9 @@ const styles = StyleSheet.create({
       width: 320,
       backgroundColor: '#FFC629'
     },
-    partida1: {
-      backgroundColor: 'white',
-      width: 90,
-      height: 50,
-      position: 'absolute',
-      top: 52,
-      left: 20,
-    },
-    partida1: {
+
+    // Single-Elimination 
+    singleP1: {
       backgroundColor: 'white',
       opacity: 0.1,
       width: 90,
@@ -101,7 +97,7 @@ const styles = StyleSheet.create({
       top: 52,
       left: 18,
     },
-    partida2: {
+    singleP2: {
       backgroundColor: 'white',
       opacity: 0.1,
       width: 90,
@@ -110,7 +106,7 @@ const styles = StyleSheet.create({
       top: 154,
       left: 18,
     },
-    partida3: {
+    singleP3: {
       backgroundColor: 'white',
       opacity: 0.1,
       width: 80,
@@ -119,7 +115,7 @@ const styles = StyleSheet.create({
       top: 68,
       left: 138,
     },
-    vencedor: {
+    singlePW: {
       backgroundColor: 'white',
       opacity: 0.1,
       width: 62,
@@ -128,6 +124,64 @@ const styles = StyleSheet.create({
       top: 105,
       left: 240,
     },
+
+    // Double-Elimination
+    doubleP1: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 52,
+      left: 18,
+    },
+    doubleP2: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 125,
+      left: 18,
+    },
+    doubleP3: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 227,
+      left: 18,
+    },
+    doubleP4: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 97,
+      position: 'absolute',
+      top: 65,
+      left: 130,
+    },
+    doubleP5: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 212,
+      left: 120,
+    },
+    doublePW: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 35,
+      position: 'absolute',
+      top: 165,
+      left: 230,
+    },
+
+    // Round-Robin
 });
 
 export default styles;

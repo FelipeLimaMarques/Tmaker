@@ -36,6 +36,7 @@ const saveNew = async (tournament) => {
 export default function CriarTorneio({ navigation }) {
     const [gameMode, setGameMode] = useState({ gameModeOption: 'fg' });
     const [game, setGame] = useState({ gameOption: 'sfv' });
+    const [bracket, setBracket] = useState({ bracketOption: 'single' });
     const [victory, setVictory] = useState({ victoryOption: 'best3' });
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -62,7 +63,7 @@ export default function CriarTorneio({ navigation }) {
                     {
                         tName: '', tMode: '', tGame: '',
                         tVictory: '', tState: 'Oitavas de Finais',
-                        tDate: ''
+                        tDate: '', tBracket: 'single'
                     },
                 }}
                 onSubmit={values => {
@@ -126,6 +127,24 @@ export default function CriarTorneio({ navigation }) {
                                         <Picker.Item label='Rainbow Six: Siege' value='rb6' />
                                         <Picker.Item label='League of Legends' value='lol' />
                                         <Picker.Item label='Dota 2' value='dota' />
+                                    </Picker>
+                                </View>
+                            </View>
+                            <View style={styles.inputWrapper}>
+                                <Text style={styles.labelText}>Escolha o chaveamento:</Text>
+                                <View style={styles.pickerWrapper}>
+                                    <Picker
+                                        style={styles.picker}
+                                        mode={'dropdown'}
+                                        selectedValue={victory.bracketOption}
+                                        onValueChange={(itemValue, _) => {
+                                            setVictory({ bracketOption: itemValue });
+                                            setFieldValue('tArray.tBracket', itemValue)
+                                        }}
+                                    >
+                                        <Picker.Item label='Single-Elimination' value='single' />
+                                        <Picker.Item label='Double-Elimination' value='double' />
+                                        <Picker.Item label='Round-Robin' value='round' />
                                     </Picker>
                                 </View>
                             </View>
