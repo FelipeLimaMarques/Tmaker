@@ -30,7 +30,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
         }
@@ -42,7 +42,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                {props.text}
+                {props.text}     {props.points}
                 </Text>
             )
 
@@ -55,7 +55,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -68,7 +68,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -81,7 +81,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -94,7 +94,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -108,7 +108,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -121,7 +121,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -134,7 +134,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -147,7 +147,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -160,7 +160,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -173,7 +173,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -186,7 +186,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -199,7 +199,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -212,7 +212,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -225,7 +225,7 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -238,7 +238,125 @@ const BracketText = (props) => {
                     maxLength={4}
                     defaultValue=""
                 >
-                    {props.text}
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        // Round-Robin
+        case 'r1': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r1]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r2': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r2]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r3': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r3]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r4': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r4]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r5': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r5]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r6': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r6]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r7': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r7]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'r8': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.r8]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
+                </Text>
+            )
+
+        }
+        case 'rW': {
+            return (
+                <Text
+                    style={[styles.bracketInput, styles.rW]}
+                    onChangeText={text => onChangeText(text)}
+                    maxLength={4}
+                    defaultValue=""
+                >
+                    {props.text}     {props.points}
                 </Text>
             )
 
@@ -294,43 +412,85 @@ const styles = StyleSheet.create({
 
     // Double-Elimination
     d1: {
-        marginTop: 55,
+        marginTop: 52,
         left: 18,
     },
     d2: {
-        marginTop: 85,
+        marginTop: 83,
         left: 18,
     },
     d3: {
-        marginTop: 158,
+        marginTop: 125,
         left: 18,
     },
     d4: {
-        marginTop: 187,
+        marginTop: 156,
         left: 18,
     },
     d5: {
-        marginTop: 71,
-        left: 138,
+        marginTop: 228,
+        left: 18,
     },
     d6: {
-        marginTop: 173,
+        marginTop: 258,
+        left: 18,
+    },
+    d7: {
+        marginTop: 67,
         left: 138,
     },
     d8: {
-        marginTop: 173,
+        marginTop: 140,
         left: 138,
     },
     d9: {
-        marginTop: 173,
-        left: 138,
+        marginTop: 212,
+        left: 122,
     },
     d10: {
-        marginTop: 173,
-        left: 138,
+        marginTop: 242,
+        left: 122,
     },
     dW: {
-        marginTop: 124,
+        marginTop: 173,
         left: 240,
+    },
+
+    // Round-Robin
+    r1: {
+        marginTop: 52,
+        left: 52,
+    },
+    r2: {
+        marginTop: 83,
+        left: 52,
+    },
+    r3: {
+        marginTop: 112,
+        left: 52,
+    },
+    r4: {
+        marginTop: 143,
+        left: 52,
+    },
+    r5: {
+        marginTop: 172,
+        left: 52,
+    },
+    r6: {
+        marginTop: 204,
+        left: 52,
+    },
+    r7: {
+        marginTop: 232,
+        left: 52,
+    },
+    r8: {
+        marginTop: 263,
+        left: 52,
+    },
+    rW: {
+        marginTop: 158,
+        left: 180,
     },
 })

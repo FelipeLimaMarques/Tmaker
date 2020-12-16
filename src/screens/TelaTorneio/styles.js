@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
     },
     inputBox: {
-      width: '50%',
+      width: '100%',
       height: 46,
       color: '#FFC629',
       fontSize: 16,
@@ -182,6 +182,51 @@ const styles = StyleSheet.create({
     },
 
     // Round-Robin
+    roundP1: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 52,
+      left: 52,
+    },
+    roundP2: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 112,
+      left: 52,
+    },
+    roundP3: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 172,
+      left: 52,
+    },
+    roundP4: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 50,
+      position: 'absolute',
+      top: 232,
+      left: 52,
+    },
+    roundPW: {
+      backgroundColor: 'white',
+      opacity: 0.1,
+      width: 90,
+      height: 35,
+      position: 'absolute',
+      top: 150,
+      left: 170,
+    },
 });
 
 export default styles;

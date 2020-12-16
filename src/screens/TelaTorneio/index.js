@@ -34,6 +34,7 @@ export default function TelaTorneio({ navigation, route }) {
     const [sPoint4, setSPoint4] = useState('')
     const [sPoint5, setSPoint5] = useState('')
     const [sPoint6, setSPoint6] = useState('')
+    const [sPointW, setSPointW] = useState('')
     const [formSVisibility1, setFormSVisibility1] = useState(false);
     const [formSVisibility2, setFormSVisibility2] = useState(false);
     const [formSVisibility3, setFormSVisibility3] = useState(false);
@@ -51,6 +52,17 @@ export default function TelaTorneio({ navigation, route }) {
     const [dText9, setDText9] = useState('')
     const [dText10, setDText10] = useState('')
     const [dTextW, setDTextW] = useState('')
+    const [dPoint1, setDPoint1] = useState('')
+    const [dPoint2, setDPoint2] = useState('')
+    const [dPoint3, setDPoint3] = useState('')
+    const [dPoint4, setDPoint4] = useState('')
+    const [dPoint5, setDPoint5] = useState('')
+    const [dPoint6, setDPoint6] = useState('')
+    const [dPoint7, setDPoint7] = useState('')
+    const [dPoint8, setDPoint8] = useState('')
+    const [dPoint9, setDPoint9] = useState('')
+    const [dPoint10, setDPoint10] = useState('')
+    const [dPointW, setDPointW] = useState('')
     const [formDVisibility1, setFormDVisibility1] = useState(false);
     const [formDVisibility2, setFormDVisibility2] = useState(false);
     const [formDVisibility3, setFormDVisibility3] = useState(false);
@@ -66,10 +78,23 @@ export default function TelaTorneio({ navigation, route }) {
     const [rText5, setRText5] = useState('')
     const [rText6, setRText6] = useState('')
     const [rText7, setRText7] = useState('')
+    const [rText8, setRText8] = useState('')
+    const [rTextW, setRTextW] = useState('')
+    const [rPoint1, setRPoint1] = useState('')
+    const [rPoint2, setRPoint2] = useState('')
+    const [rPoint3, setRPoint3] = useState('')
+    const [rPoint4, setRPoint4] = useState('')
+    const [rPoint5, setRPoint5] = useState('')
+    const [rPoint6, setRPoint6] = useState('')
+    const [rPoint7, setRPoint7] = useState('')
+    const [rPoint8, setRPoint8] = useState('')
+    const [rPointW, setRPointW] = useState('')
     const [formRVisibility1, setFormRVisibility1] = useState(false);
     const [formRVisibility2, setFormRVisibility2] = useState(false);
     const [formRVisibility3, setFormRVisibility3] = useState(false);
     const [formRVisibility4, setFormRVisibility4] = useState(false);
+    const [formRVisibilityW, setFormRVisibilityW] = useState(false);
+
 
     useEffect(() => {
         let mounted = true;
@@ -104,7 +129,7 @@ export default function TelaTorneio({ navigation, route }) {
                                 formSVisibility1
                                     ? <View style={styles.formStyle}>
                                         <View style={styles.inputHorizontal}>
-                                            <View style={{ width: '100%' }}>
+                                            <View style={{ width: '50%' }}>
                                                 <Text style={styles.labelText}>Time 1:</Text>
                                                 <TextInput
                                                     style={styles.inputBox}
@@ -113,23 +138,38 @@ export default function TelaTorneio({ navigation, route }) {
                                                     defaultValue=""
                                                 />
                                             </View>
-                                            <View style={{ width: '100%' }}>
+                                            <View style={{ width: '50%' }}>
                                                 <Text style={styles.labelText}>Pontos:</Text>
                                                 <TextInput
                                                     style={styles.inputBox}
                                                     onChangeText={value => setSPoint1(value)}
-                                                    maxLength={4}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
                                                     defaultValue=""
                                                 />
                                             </View>
                                         </View>
-                                        <Text style={styles.labelText}>Time 2:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSText2(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 2:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSText2(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPoint2(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -143,20 +183,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 2
                                 formSVisibility2
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 3:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSText3(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 4:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSText4(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 3:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSText3(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPoint3(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 4:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSText4(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPoint4(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -170,20 +238,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 3
                                 formSVisibility3
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 5:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSText5(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 6:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSText6(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 5:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSText5(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPoint5(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 6:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSText6(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPoint6(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -197,13 +293,27 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Vencedor
                                 formSVisibilityW
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Vencedor:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setSTextW(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Vencedor:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSTextW(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setSPointW(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -256,31 +366,37 @@ export default function TelaTorneio({ navigation, route }) {
                             <BracketText
                                 pos={'s1'}
                                 text={sText1}
-                                points={1}
+                                points={sPoint1}
                             />
                             <BracketText
                                 pos={'s2'}
                                 text={sText2}
+                                points={sPoint2}
                             />
                             <BracketText
                                 pos={'s3'}
                                 text={sText3}
+                                points={sPoint3}
                             />
                             <BracketText
                                 pos={'s4'}
                                 text={sText4}
+                                points={sPoint4}
                             />
                             <BracketText
                                 pos={'s5'}
                                 text={sText5}
+                                points={sPoint5}
                             />
                             <BracketText
                                 pos={'s6'}
                                 text={sText6}
+                                points={sPoint6}
                             />
                             <BracketText
                                 pos={'sW'}
                                 text={sTextW}
+                                points={sPointW}
                             />
 
                             <View style={styles.cardLine} />
@@ -305,8 +421,6 @@ export default function TelaTorneio({ navigation, route }) {
                                 />
                             </View>
                         </View>
-
-
                     </KeyboardAvoidingView>
                 </View>
             )
@@ -332,20 +446,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 1
                                 formDVisibility1
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 1:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText1(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 2:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText2(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 1:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText1(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint1(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 2:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText2(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint2(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -359,20 +501,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 2
                                 formDVisibility2
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 3:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText3(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 4:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText4(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 3:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText3(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint3(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 4:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText4(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint4(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -386,20 +556,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 3
                                 formDVisibility3
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 5:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText5(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 6:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText6(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 5:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText5(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint5(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 6:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText6(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint6(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -413,19 +611,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 4
                                 formDVisibility4
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Vencedor:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText7(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText8(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 7:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText7(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint7(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 8:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText8(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint8(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -439,19 +666,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 5
                                 formDVisibility5
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Vencedor:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText9(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDText10(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 9:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText9(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint9(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 10:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDText10(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPoint10(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -465,14 +721,27 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Vencedor
                                 formDVisibilityW
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Vencedor:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setDTextW(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Vencedor:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDTextW(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setDPointW(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -497,7 +766,7 @@ export default function TelaTorneio({ navigation, route }) {
                                         <TouchableHighlight
                                             style={styles.doubleP2}
                                             onPress={() => {
-                                                setFormVisibility2(!formDVisibility2)
+                                                setFormDVisibility2(!formDVisibility2)
                                             }}
                                         >
                                             <Text />
@@ -505,7 +774,7 @@ export default function TelaTorneio({ navigation, route }) {
                                         <TouchableHighlight
                                             style={styles.doubleP3}
                                             onPress={() => {
-                                                setFormVisibility3(!formDVisibility3)
+                                                setFormDVisibility3(!formDVisibility3)
                                             }}
                                         >
                                             <Text />
@@ -541,46 +810,57 @@ export default function TelaTorneio({ navigation, route }) {
                             <BracketText
                                 pos={'d1'}
                                 text={dText1}
+                                points={dPoint1}
                             />
                             <BracketText
                                 pos={'d2'}
                                 text={dText2}
+                                points={dPoint2}
                             />
                             <BracketText
                                 pos={'d3'}
                                 text={dText3}
+                                points={dPoint3}
                             />
                             <BracketText
                                 pos={'d4'}
                                 text={dText4}
+                                points={dPoint4}
                             />
                             <BracketText
                                 pos={'d5'}
                                 text={dText5}
+                                points={dPoint5}
                             />
                             <BracketText
                                 pos={'d6'}
                                 text={dText6}
+                                points={dPoint6}
                             />
                             <BracketText
                                 pos={'d7'}
                                 text={dText7}
+                                points={dPoint7}
                             />
                             <BracketText
                                 pos={'d8'}
                                 text={dText8}
+                                points={dPoint8}
                             />
                             <BracketText
                                 pos={'d9'}
                                 text={dText9}
+                                points={dPoint9}
                             />
                             <BracketText
                                 pos={'d10'}
                                 text={dText10}
+                                points={dPoint10}
                             />
                             <BracketText
                                 pos={'dW'}
                                 text={dTextW}
+                                points={dPointW}
                             />
 
                             <View style={styles.cardLine} />
@@ -632,20 +912,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 1
                                 formRVisibility1
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 1:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText1(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 2:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText2(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 1:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText1(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint1(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 2:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText2(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint2(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -659,20 +967,48 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 2
                                 formRVisibility2
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 3:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText3(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 4:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText4(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 3:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText3(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint3(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 4:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText4(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint4(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
@@ -686,45 +1022,142 @@ export default function TelaTorneio({ navigation, route }) {
                                 // Partida 3
                                 formRVisibility3
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Time 5:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText5(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
-                                        <Text style={styles.labelText}>Time 6:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText6(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 5:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText5(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint5(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 6:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText6(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint6(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
                                             width='normal'
-                                            onPress={() => { setFormRVisibility3(!formVisibility3) }}
+                                            onPress={() => { setFormRVisibility3(!formRVisibility3) }}
+                                        />
+                                    </View>
+                                    : null
+                            }
+                            {
+                                // Partida 4
+                                formRVisibility4
+                                    ? <View style={styles.formStyle}>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 7:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText7(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint7(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Time 8:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRText8(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPoint8(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
+                                        <FormButton
+                                            text='Salvar'
+                                            fontSize={24}
+                                            width='normal'
+                                            onPress={() => { setFormRVisibility4(!formRVisibility4) }}
                                         />
                                     </View>
                                     : null
                             }
                             {
                                 // Vencedor
-                                formRVisibility4
+                                formRVisibilityW
                                     ? <View style={styles.formStyle}>
-                                        <Text style={styles.labelText}>Vencedor:</Text>
-                                        <TextInput
-                                            style={styles.inputBox}
-                                            onChangeText={value => setRText7(value)}
-                                            maxLength={4}
-                                            defaultValue=""
-                                        />
+                                        <View style={styles.inputHorizontal}>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Vencedor:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRTextW(value)}
+                                                    maxLength={4}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                            <View style={{ width: '50%' }}>
+                                                <Text style={styles.labelText}>Pontos:</Text>
+                                                <TextInput
+                                                    style={styles.inputBox}
+                                                    onChangeText={value => setRPointW(value)}
+                                                    keyboardType={'numeric'}
+                                                    maxLength={1}
+                                                    defaultValue=""
+                                                />
+                                            </View>
+                                        </View>
                                         <FormButton
                                             text='Salvar'
                                             fontSize={24}
                                             width='normal'
-                                            onPress={() => { setFormRVisibility4(!formVisibility4) }}
+                                            onPress={() => { setFormRVisibilityW(!formRVisibilityW) }}
                                         />
                                     </View>
                                     : null
@@ -734,7 +1167,7 @@ export default function TelaTorneio({ navigation, route }) {
                                 editVisibility
                                     ? <View style={{ position: 'absolute', left: 0 }}>
                                         <TouchableHighlight
-                                            style={styles.partida1}
+                                            style={styles.roundP1}
                                             onPress={() => {
                                                 setFormRVisibility1(!formRVisibility1)
                                             }}
@@ -742,7 +1175,7 @@ export default function TelaTorneio({ navigation, route }) {
                                             <Text />
                                         </TouchableHighlight>
                                         <TouchableHighlight
-                                            style={styles.partida2}
+                                            style={styles.roundP2}
                                             onPress={() => {
                                                 setFormRVisibility2(!formRVisibility2)
                                             }}
@@ -750,7 +1183,7 @@ export default function TelaTorneio({ navigation, route }) {
                                             <Text />
                                         </TouchableHighlight>
                                         <TouchableHighlight
-                                            style={styles.partida3}
+                                            style={styles.roundP3}
                                             onPress={() => {
                                                 setFormRVisibility3(!formRVisibility3)
                                             }}
@@ -758,9 +1191,17 @@ export default function TelaTorneio({ navigation, route }) {
                                             <Text />
                                         </TouchableHighlight>
                                         <TouchableHighlight
-                                            style={styles.vencedor}
+                                            style={styles.roundP4}
                                             onPress={() => {
                                                 setFormRVisibility4(!formRVisibility4)
+                                            }}
+                                        >
+                                            <Text />
+                                        </TouchableHighlight>
+                                        <TouchableHighlight
+                                            style={styles.roundPW}
+                                            onPress={() => {
+                                                setFormRVisibilityW(!formRVisibilityW)
                                             }}
                                         >
                                             <Text />
@@ -770,32 +1211,49 @@ export default function TelaTorneio({ navigation, route }) {
                             }
 
                             <BracketText
-                                pos={1}
+                                pos={'r1'}
                                 text={rText1}
+                                points={rPoint1}
                             />
                             <BracketText
-                                pos={2}
+                                pos={'r2'}
                                 text={rText2}
+                                points={rPoint2}
                             />
                             <BracketText
-                                pos={3}
+                                pos={'r3'}
                                 text={rText3}
+                                points={rPoint3}
                             />
                             <BracketText
-                                pos={4}
+                                pos={'r4'}
                                 text={rText4}
+                                points={rPoint4}
                             />
                             <BracketText
-                                pos={5}
+                                pos={'r5'}
                                 text={rText5}
+                                points={rPoint5}
                             />
                             <BracketText
-                                pos={6}
+                                pos={'r6'}
                                 text={rText6}
+                                points={rPoint6}
                             />
                             <BracketText
-                                pos={7}
+                                pos={'r7'}
                                 text={rText7}
+                                points={rPoint7}
+                            />
+                            <BracketText
+                                pos={'r8'}
+                                text={rText8}
+                                points={rPoint8}
+                            />
+                            <BracketText
+                                pos={'rW'}
+                                text={rTextW}
+                                points={rPointW}
                             />
 
                             <View style={styles.cardLine} />
