@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
     bracketInput: {
         backgroundColor: 'transparent',
         color: '#FFC629',
-        width: 60,
+        width: 65,
         height: 15,
         paddingLeft: 5,
         position: 'absolute'
