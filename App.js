@@ -6,6 +6,8 @@ import Home from './src/screens/Home';
 import CriarTorneio from './src/screens/CriarTorneio';
 import ListarTorneios from './src/screens/ListarTorneios';
 import TelaTorneio from './src/screens/TelaTorneio';
+import TelaEquipe from './src/screens/TelaEquipe';
+import CriarEquipe from './src/screens/CriarEquipe';
 
 function HeaderViews(props) {
   return (
@@ -58,6 +60,18 @@ export default function App() {
           component={TelaTorneio}
           options={{
             headerTitle: (props) => <HeaderViews title={'Torneio'} />
+          }}
+        />
+        <Stack.Screen name="TelaEquipe"
+          component={TelaEquipe}
+          options={{
+            headerTitle: (props) => <HeaderViews title={'Equipe'} />
+          }}
+        />
+        <Stack.Screen name="CriarEquipe"
+          component={CriarEquipe}
+          options={{
+            headerTitle: (props) => <HeaderViews title={'Criar Equipe'} />
           }}
         />
       </Stack.Navigator>

@@ -24,23 +24,6 @@ const storeData = async (value, key) => {
     }
 }
 
-const saveNew = async (team, key) => {
-    try {
-        let existingTeams = await AsyncStorage.getItem(key).
-            then(res => {
-                res = JSON.parse(res);
-                return res;
-            })
-        if (existingTeams == null) {
-            existingTeams = [];
-        }
-        existingTeams.push(team);
-        await AsyncStorage.setItem(key, JSON.stringify(existingTeams));
-    } catch (e) {
-        alert(e.message);
-    }
-}
-
 const readData = async (setSBData, key) => {
     try {
         let res = await AsyncStorage.getItem(key).
@@ -61,10 +44,7 @@ export default function TelaTorneio({ navigation, route }) {
     const [tData, setTData] = useState([]);
     const [bracketToRender, setBracketToRender] = useState();
     const [editVisibility, setEditVisibility] = useState(false);
-    const [teamsVisibility, setTeamsVisibility] = useState(false);
-    const [teamsArr, setTeamsArr] = useState([]);
     const [storageKey, setStorageKey] = useState('@placeholder');
-    const [teamsStorageKey, setTeamsStorageKey] = useState('@placeholder_teams')
 
     // singleBracket states
     const [sBData, setSBData] = useState({
@@ -112,16 +92,17 @@ export default function TelaTorneio({ navigation, route }) {
         setTData(tArray);
         setBracketToRender(tArray.tBracket);
         const auxKey = '@' + tArray.tName.replace(/\s/g, '_')
-        const auxTeamKey = '@' + tArray.tName.replace(/\s/g, '_') + '_teams'
         setStorageKey(auxKey)
-        setTeamsStorageKey(auxTeamKey)
+
         if (tArray.tBracket == 'single') {
             readData(setSBData, auxKey)
-            readData(setTeamsArr, auxTeamKey)
         }
-        if (tArray.tBracket == 'double') readData(setDBData, auxKey)
-        if (tArray.tBracket == 'round') readData(setRBData, auxKey)
-
+        if (tArray.tBracket == 'double') {
+            readData(setDBData, auxKey)
+        }
+        if (tArray.tBracket == 'round') {
+            readData(setRBData, auxKey)
+        }
 
         return () => mounted = false;
     }, []);
@@ -143,14 +124,11 @@ export default function TelaTorneio({ navigation, route }) {
                                     st6: '', stw: '', sp1: '', sp2: '', sp3: '',
                                     sp4: '', sp5: '', sp6: '', spw: '',
                                 },
-                                sTeams: [],
                             }}
                             onSubmit={values => {
                                 storeData(values.sObj, storageKey);
-                                saveNew(values.sTeams, teamsStorageKey)
                                 alert('Alterações salvas')
                                 readData(setSBData, storageKey)
-                                readData(setTeamsArr, teamsStorageKey)
                                 if (formSVisibility1 == true) setFormSVisibility1(false)
                                 if (formSVisibility2 == true) setFormSVisibility2(false)
                                 if (formSVisibility3 == true) setFormSVisibility3(false)
@@ -445,36 +423,22 @@ export default function TelaTorneio({ navigation, route }) {
                                     <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>
-                                        {
-                                            teamsVisibility
-                                                ? <View style={styles.teamsWrapper}>
-                                                    <View style={{ width: '100%' }}>
-                                                        <TextInput
-                                                            style={styles.teamInput}
-                                                            onChangeText={handleChange('sTeams')}
-                                                        />
-                                                    </View>
-                                                    <View style={styles.buttonInputView}>
-                                                        <FormButton
-                                                            width={'normal'}
-                                                            text={'Criar'}
-                                                            fontSize={24}
-                                                            onPress={handleSubmit}
-                                                        />
-                                                        <View style={{ width: 10 }} />
-                                                    </View>
-                                                </View>
-                                                : teamsArr.map((team, index) => {
-                                                    return <TouchableHighlight
-                                                        key={index}
-                                                        style={styles.teamCard}
-                                                        onPress={() => { alert('Pressed') }}
-                                                    >
-                                                        <Text style={styles.teamCardText}>{team}</Text>
-                                                    </TouchableHighlight>
-                                                })
-                                        }
-
+                                        <View style={styles.teamsWrapper}>
+                                            <View style={styles.buttonInputView}>
+                                                <FormButton
+                                                    width={'normal'}
+                                                    text={'Equipes'}
+                                                    fontSize={24}
+                                                    onPress={() => {
+                                                        navigation.navigate('CriarEquipe', {
+                                                             tKey: '@' + tData.tName.replace(/\s/g, '_') + '_team',
+                                                             tName: tData.tName,
+                                                        })
+                                                    }}
+                                                />
+                                                <View style={{ width: 10 }} />
+                                            </View>
+                                        </View>
                                     </ScrollView>
                                     <View style={styles.buttonView}>
                                         <FormButton
@@ -483,7 +447,6 @@ export default function TelaTorneio({ navigation, route }) {
                                             width='normal'
                                             onPress={() => {
                                                 setEditVisibility(!editVisibility)
-                                                setTeamsVisibility(!teamsVisibility)
                                             }}
                                         />
                                     </View>
@@ -510,13 +473,10 @@ export default function TelaTorneio({ navigation, route }) {
                                     dp1: '', dp2: '', dp3: '', dp4: '', dp5: '', dp6: '', dp7: '',
                                     dp8: '', dp9: '', dp10: '', dpw: '',
                                 },
-                                dTeams: [],
                             }}
                             onSubmit={values => {
                                 storeData(values.dObj, storageKey);
-                                saveNew(values.dTeams, teamsStorageKey)
                                 alert('Alterações salvas')
-                                readData(setTeamsArr, teamsStorageKey)
                                 readData(setDBData, storageKey)
                                 if (formDVisibility1 == true) setFormDVisibility1(false)
                                 if (formDVisibility2 == true) setFormDVisibility2(false)
@@ -959,36 +919,22 @@ export default function TelaTorneio({ navigation, route }) {
                                     <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>
-                                    {
-                                            teamsVisibility
-                                                ? <View style={styles.teamsWrapper}>
-                                                    <View style={{ width: '100%' }}>
-                                                        <TextInput
-                                                            style={styles.teamInput}
-                                                            onChangeText={handleChange('dTeams')}
-                                                        />
-                                                    </View>
-                                                    <View style={styles.buttonInputView}>
-                                                        <FormButton
-                                                            width={'normal'}
-                                                            text={'Criar'}
-                                                            fontSize={24}
-                                                            onPress={handleSubmit}
-                                                        />
-                                                        <View style={{ width: 10 }} />
-                                                    </View>
-                                                </View>
-                                                : teamsArr.map((team, index) => {
-                                                    return <TouchableHighlight
-                                                        key={index}
-                                                        style={styles.teamCard}
-                                                        onPress={() => { alert('Pressed') }}
-                                                    >
-                                                        <Text style={styles.teamCardText}>{team}</Text>
-                                                    </TouchableHighlight>
-                                                })
-                                        }
-
+                                        <View style={styles.teamsWrapper}>
+                                            <View style={styles.buttonInputView}>
+                                                <FormButton
+                                                    width={'normal'}
+                                                    text={'Equipes'}
+                                                    fontSize={24}
+                                                    onPress={() => {
+                                                        navigation.navigate('CriarEquipe', {
+                                                             tKey: '@' + tData.tName.replace(/\s/g, '_') + '_team',
+                                                             tName: tData.tName,
+                                                        })
+                                                    }}
+                                                />
+                                                <View style={{ width: 10 }} />
+                                            </View>
+                                        </View>
                                     </ScrollView>
                                     <View style={styles.buttonView}>
                                         <FormButton
@@ -997,7 +943,6 @@ export default function TelaTorneio({ navigation, route }) {
                                             width='normal'
                                             onPress={() => {
                                                 setEditVisibility(!editVisibility)
-                                                setTeamsVisibility(!teamsVisibility)
                                             }}
                                         />
                                     </View>
@@ -1026,13 +971,10 @@ export default function TelaTorneio({ navigation, route }) {
                                     rp1: '', rp2: '', rp3: '', rp4: '', rp5: '', rp6: '', rp7: '',
                                     rp8: '', rpw: '',
                                 },
-                                rTeams: [],
                             }}
                             onSubmit={values => {
                                 storeData(values.rObj, storageKey);
-                                saveNew(values.rTeams, teamsStorageKey)
                                 alert('Alterações salvas')
-                                readData(setTeamsArr, teamsStorageKey)
                                 readData(setRBData, storageKey)
                                 if (formRVisibility1 == true) setFormRVisibility1(false)
                                 if (formRVisibility2 == true) setFormRVisibility2(false)
@@ -1401,36 +1343,22 @@ export default function TelaTorneio({ navigation, route }) {
                                     <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>
-                                    {
-                                            teamsVisibility
-                                                ? <View style={styles.teamsWrapper}>
-                                                    <View style={{ width: '100%' }}>
-                                                        <TextInput
-                                                            style={styles.teamInput}
-                                                            onChangeText={handleChange('rTeams')}
-                                                        />
-                                                    </View>
-                                                    <View style={styles.buttonInputView}>
-                                                        <FormButton
-                                                            width={'normal'}
-                                                            text={'Criar'}
-                                                            fontSize={24}
-                                                            onPress={handleSubmit}
-                                                        />
-                                                        <View style={{ width: 10 }} />
-                                                    </View>
-                                                </View>
-                                                : teamsArr.map((team, index) => {
-                                                    return <TouchableHighlight
-                                                        key={index}
-                                                        style={styles.teamCard}
-                                                        onPress={() => { alert('Pressed') }}
-                                                    >
-                                                        <Text style={styles.teamCardText}>{team}</Text>
-                                                    </TouchableHighlight>
-                                                })
-                                        }
-
+                                        <View style={styles.teamsWrapper}>
+                                            <View style={styles.buttonInputView}>
+                                                <FormButton
+                                                    width={'normal'}
+                                                    text={'Equipes'}
+                                                    fontSize={24}
+                                                    onPress={() => {
+                                                        navigation.navigate('CriarEquipe', {
+                                                             tKey: '@' + tData.tName.replace(/\s/g, '_') + '_team',
+                                                             tName: tData.tName,
+                                                        })
+                                                    }}
+                                                />
+                                                <View style={{ width: 10 }} />
+                                            </View>
+                                        </View>
                                     </ScrollView>
                                     <View style={styles.buttonView}>
                                         <FormButton
@@ -1439,7 +1367,6 @@ export default function TelaTorneio({ navigation, route }) {
                                             width='normal'
                                             onPress={() => {
                                                 setEditVisibility(!editVisibility)
-                                                setTeamsVisibility(!teamsVisibility)
                                             }}
                                         />
                                     </View>
