@@ -421,6 +421,8 @@ export default function TelaTorneio({ navigation, route }) {
                                     />
 
                                     <View style={styles.cardLine} />
+                                    <Text style={styles.headerText}>{tData.tVictory}</Text>
+                                    <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>
                                         <View style={styles.teamsWrapper}>
@@ -917,6 +919,8 @@ export default function TelaTorneio({ navigation, route }) {
                                     />
 
                                     <View style={styles.cardLine} />
+                                    <Text style={styles.headerText}>{tData.tVictory}</Text>
+                                    <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>
                                         <View style={styles.teamsWrapper}>
@@ -1340,6 +1344,8 @@ export default function TelaTorneio({ navigation, route }) {
                                         points={rBData.rpw}
                                     />
 
+                                    <View style={styles.cardLine} />
+                                    <Text style={styles.headerText}>{tData.tVictory}</Text>
                                     <View style={styles.cardLine} />
                                     <Text style={styles.headerText}>Equipes</Text>
                                     <ScrollView styles={styles.scrollView}>

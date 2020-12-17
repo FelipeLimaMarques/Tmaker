@@ -65,7 +65,7 @@ export default function App() {
         <Stack.Screen name="TelaEquipe"
           component={TelaEquipe}
           options={{
-            headerTitle: (props) => <HeaderViews title={'Equipe'} />
+            headerTitle: (props) => <HeaderViews title={'Jogares'} />
           }}
         />
         <Stack.Screen name="CriarEquipe"

@@ -136,9 +136,9 @@ export default function CriarTorneio({ navigation }) {
                                     <Picker
                                         style={styles.picker}
                                         mode={'dropdown'}
-                                        selectedValue={victory.bracketOption}
+                                        selectedValue={bracket.bracketOption}
                                         onValueChange={(itemValue, _) => {
-                                            setVictory({ bracketOption: itemValue });
+                                            setBracket({ bracketOption: itemValue });
                                             setFieldValue('tArray.tBracket', itemValue)
                                         }}
                                     >
@@ -160,9 +160,9 @@ export default function CriarTorneio({ navigation }) {
                                             setFieldValue('tArray.tVictory', itemValue)
                                         }}
                                     >
-                                        <Picker.Item label='Melhor de 3' value='best3' />
-                                        <Picker.Item label='Melhor de 5' value='best5' />
-                                        <Picker.Item label='Melhor de 7' value='best7' />
+                                        <Picker.Item label='Melhor de 3' value='Melhor de 3' />
+                                        <Picker.Item label='Melhor de 5' value='Melhor de 5' />
+                                        <Picker.Item label='Melhor de 7' value='Melhor de 7' />
                                     </Picker>
                                 </View>
                             </View>
