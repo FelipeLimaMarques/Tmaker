@@ -110,7 +110,7 @@ export default function ListarTorneios({ navigation }) {
                                                     <Text style={styles.cardHeaderText}>{item.tName}</Text>
                                                 </View>
                                                 <View style={styles.cardBody}>
-                                                    <Text style={styles.cardBodyText}>{item.tState}</Text>
+                                                    <Text style={styles.cardBodyText}>{item.tVictory}</Text>
                                                     <Text style={styles.cardBodyText}>{item.tDate}</Text>
                                                 </View>
                                             </View>

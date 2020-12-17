@@ -62,7 +62,7 @@ export default function CriarTorneio({ navigation }) {
                     tArray:
                     {
                         tName: '', tMode: '', tGame: '',
-                        tVictory: '', tState: 'Oitavas de Finais',
+                        tVictory: 'Melhor de 3', tState: 'Oitavas de Finais',
                         tDate: '', tBracket: 'single'
                     },
                 }}
